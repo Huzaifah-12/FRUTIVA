@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frutiva: The Future of Fresh — Presentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #0a5c36;
+            --green-light: #0d7a48;
+            --green-glow: rgba(10, 92, 54, 0.15);
+            --green-glow-strong: rgba(10, 92, 54, 0.35);
+            --red: #e63946;
+            --red-light: #ff4d5a;
+            --red-glow: rgba(230, 57, 70, 0.15);
+            --white: #ffffff;
+            --off-white: #f8f9fa;
+            --gray-100: #f1f3f5;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+            --gray-600: #868e96;
+            --gray-700: #495057;
+            --gray-800: #343a40;
+            --gray-900: #212529;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Presentation Container */
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Slide Base */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            padding: 60px 80px;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+        }
+
+        .slide.exit-left {
+            opacity: 0;
+            transform: translateX(-60px);
+        }
+
+        /* Slide Inner Layouts */
+        .slide-center {
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .slide-split {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .slide-split .text-col {
+            flex: 1;
+        }
+
+        .slide-split .visual-col {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-full-visual {
+            width: 100%;
+            max-width: 1100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Typography */
+        .slide-headline {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(28px, 4vw, 52px);
+            font-weight: 800;
+            color: var(--green);
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            margin-bottom: 32px;
+        }
+
+        .slide-headline.red-accent {
+            color: var(--gray-900);
+        }
+
+        .slide-headline.red-accent span {
+            color: var(--red);
+        }
+
+        .slide-quote {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: clamp(18px, 2.2vw, 26px);
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin-bottom: 36px;
+            max-width: 750px;
+        }
+
+        .slide-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .slide-bullets li {
+            font-size: clamp(15px, 1.6vw, 20px);
+            font-weight: 500;
+            color: var(--gray-700);
+            padding-left: 24px;
+            position: relative;
+            letter-spacing: 0.2px;
+        }
+
+        .slide-bullets li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--red);
+        }
+
+        .slide-subtext {
+            font-size: clamp(13px, 1.2vw, 16px);
+            color: var(--gray-500);
+            margin-top: 28px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        .slide-label {
+            font-size: clamp(11px, 1vw, 13px);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--red);
+            margin-bottom: 20px;
+        }
+
+        /* Red line accent */
+        .red-line {
+            width: 60px;
+            height: 3px;
+            background: var(--red);
+            margin: 0 auto 40px;
+            border-radius: 2px;
+        }
+
+        .red-line-left {
+            width: 60px;
+            height: 3px;
+            background: var(--red);
+            margin-bottom: 40px;
+            border-radius: 2px;
+        }
+
+        /* ===================== */
+        /* SLIDE 1: TITLE        */
+        /* ===================== */
+        .title-main {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(36px, 5.5vw, 72px);
+            font-weight: 900;
+            color: var(--green);
+            letter-spacing: -3px;
+            line-height: 1.05;
+            margin-bottom: 8px;
+        }
+
+        .title-sub {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(16px, 2vw, 24px);
+            color: var(--gray-500);
+            margin-bottom: 48px;
+            letter-spacing: 0.5px;
+        }
+
+        .title-presenter {
+            font-size: clamp(16px, 1.6vw, 20px);
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 6px;
+        }
+
+        .title-academic {
+            font-size: clamp(13px, 1.2vw, 15px);
+            color: var(--gray-500);
+            font-weight: 400;
+        }
+
+        /* ===================== */
+        /* SLIDE 13: THANK YOU   */
+        /* ===================== */
+        .thank-you-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 6vw, 80px);
+            font-weight: 400;
+            color: var(--green);
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .thank-you-sub {
+            font-size: clamp(14px, 1.4vw, 18px);
+            color: var(--gray-500);
+            font-weight: 400;
+        }
+
+        .red-circle-bottom {
+            width: 12px;
+            height: 12px;
+            background: var(--red);
+            border-radius: 50%;
+            margin-top: 80px;
+        }
+
+        /* ===================== */
+        /* HERO VISUALS          */
+        /* ===================== */
+
+        /* Slide 2: Radial lines from center */
+        .visual-radial {
+            width: 340px;
+            height: 340px;
+            position: relative;
+        }
+
+        .visual-radial .center-dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
+            background: var(--red);
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 30px var(--red-glow), 0 0 60px var(--red-glow);
+        }
+
+        .visual-radial .line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 1.5px;
+            background: var(--green);
+            transform-origin: left center;
+            opacity: 0.5;
+        }
+
+        .visual-radial .line:nth-child(2) { width: 140px; transform: rotate(0deg); }
+        .visual-radial .line:nth-child(3) { width: 120px; transform: rotate(45deg); }
+        .visual-radial .line:nth-child(4) { width: 155px; transform: rotate(90deg); }
+        .visual-radial .line:nth-child(5) { width: 130px; transform: rotate(135deg); }
+        .visual-radial .line:nth-child(6) { width: 145px; transform: rotate(180deg); }
+        .visual-radial .line:nth-child(7) { width: 125px; transform: rotate(225deg); }
+        .visual-radial .line:nth-child(8) { width: 150px; transform: rotate(270deg); }
+        .visual-radial .line:nth-child(9) { width: 135px; transform: rotate(315deg); }
+
+        .visual-radial .endpoint {
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+        }
+
+        /* Slide 4: X-Ray Wireframe */
+        .wireframe-container {
+            width: 380px;
+            height: 300px;
+            border: 2px solid var(--gray-300);
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wireframe-nav {
+            height: 36px;
+            background: var(--green);
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            gap: 8px;
+        }
+
+        .wireframe-nav span {
+            width: 20px;
+            height: 3px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 2px;
+        }
+
+        .wireframe-hero {
+            height: 50px;
+            border-bottom: 1.5px dashed var(--gray-300);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .wireframe-tag {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--green);
+            background: var(--green-glow);
+            padding: 2px 8px;
+            border-radius: 3px;
+            border: 1px solid var(--green);
+            letter-spacing: 0.5px;
+        }
+
+        .wireframe-body {
+            display: flex;
+            height: calc(100% - 86px);
+        }
+
+        .wireframe-main {
+            flex: 1;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-content: flex-start;
+            border-right: 1.5px dashed var(--gray-300);
+        }
+
+        .wireframe-card {
+            width: calc(50% - 4px);
+            height: 70px;
+            border: 1.5px solid var(--green);
+            border-radius: 4px;
+            background: var(--green-glow);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wireframe-card .wireframe-tag {
+            font-size: 8px;
+            padding: 1px 5px;
+        }
+
+        .wireframe-sidebar {
+            width: 80px;
+            padding: 10px 6px;
+        }
+
+        .wireframe-sidebar-item {
+            height: 16px;
+            background: var(--red-glow);
+            border: 1px solid var(--red);
+            border-radius: 3px;
+            margin-bottom: 6px;
+        }
+
+        .wireframe-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 24px;
+            border-top: 1.5px dashed var(--gray-300);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Slide 5: Deconstructed Layers */
+        .layers-container {
+            width: 360px;
+            position: relative;
+        }
+
+        .glass-pane {
+            width: 320px;
+            height: 100px;
+            border-radius: 8px;
+            position: relative;
+            margin-bottom: -20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            transition: transform 0.3s;
+        }
+
+        .glass-pane:last-child {
+            margin-bottom: 0;
+        }
+
+        .glass-pane-1 {
+            background: rgba(10, 92, 54, 0.06);
+            border: 1.5px solid var(--green);
+            z-index: 1;
+            margin-left: 0;
+        }
+
+        .glass-pane-2 {
+            background: rgba(230, 57, 70, 0.04);
+            border: 1.5px solid var(--red);
+            z-index: 2;
+            margin-left: 20px;
+        }
+
+        .glass-pane-3 {
+            background: var(--white);
+            border: 1.5px solid var(--gray-300);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            z-index: 3;
+            margin-left: 40px;
+        }
+
+        .pane-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .pane-label.green { color: var(--green); }
+        .pane-label.red { color: var(--red); }
+        .pane-label.dark { color: var(--gray-800); }
+
+        .pane-detail {
+            font-size: 10px;
+            color: var(--gray-500);
+            margin-top: 4px;
+        }
+
+        /* Slide 6: Data Stream Flow */
+        .flow-container {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .flow-node {
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+        }
+
+        .flow-node-input {
+            background: var(--green-glow);
+            border: 1.5px solid var(--green);
+            color: var(--green);
+        }
+
+        .flow-node-process {
+            background: var(--gray-100);
+            border: 1.5px solid var(--gray-400);
+            color: var(--gray-700);
+            width: 120px;
+        }
+
+        .flow-node-process .math {
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--gray-500);
+            margin-top: 2px;
+        }
+
+        .flow-node-output {
+            background: var(--red-glow);
+            border: 1.5px solid var(--red);
+            color: var(--red);
+        }
+
+        .flow-arrow {
+            width: 40px;
+            height: 2px;
+            position: relative;
+        }
+
+        .flow-arrow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gray-400);
+        }
+
+        .flow-arrow::after {
+            content: '';
+            position: absolute;
+            right: -1px;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid var(--gray-400);
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+
+        .flow-arrow.green::before { background: var(--green); }
+        .flow-arrow.green::after { border-left-color: var(--green); }
+        .flow-arrow.red::before { background: var(--red); }
+        .flow-arrow.red::after { border-left-color: var(--red); }
+
+        /* Slide 7: Line Graph */
+        .graph-container {
+            width: 400px;
+            height: 240px;
+            position: relative;
+            border-left: 2px solid var(--gray-300);
+            border-bottom: 2px solid var(--gray-300);
+        }
+
+        .graph-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .graph-line svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .graph-label {
+            position: absolute;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .graph-label.harvest {
+            color: var(--red);
+            bottom: -28px;
+            left: 58%;
+        }
+
+        .graph-label.normal {
+            color: var(--green);
+            bottom: -28px;
+            left: 10%;
+        }
+
+        /* Slide 8: Shield/Gate */
+        .shield-container {
+            width: 300px;
+            position: relative;
+        }
+
+        .gate-frame {
+            width: 100%;
+            height: 180px;
+            border: 2px solid var(--green);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gate-pass {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gate-packet {
+            width: 50px;
+            height: 30px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .gate-packet.allowed {
+            background: var(--green-glow-strong);
+            border: 1.5px solid var(--green);
+            color: var(--green);
+        }
+
+        .gate-packet.blocked {
+            background: rgba(230, 57, 70, 0.08);
+            border: 1.5px solid var(--gray-300);
+            color: var(--gray-400);
+            opacity: 0.6;
+        }
+
+        .gate-scanner {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: var(--red);
+            box-shadow: 0 0 12px var(--red-glow);
+        }
+
+        .gate-arrow {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        .gate-arrow-block {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            color: var(--red);
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .gate-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px;
+        }
+
+        .gate-label-text {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .gate-label-text.green { color: var(--green); }
+        .gate-label-text.red { color: var(--red); }
+
+        /* Slide 9: JSON Hologram */
+        .json-container {
+            background: var(--gray-100);
+            border: 1.5px solid var(--gray-300);
+            border-radius: 8px;
+            padding: 24px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            width: 420px;
+        }
+
+        .json-bracket { color: var(--gray-500); }
+        .json-key { color: var(--gray-700); }
+        .json-key-green { color: var(--green); font-weight: 600; }
+        .json-value-red { color: var(--red); font-weight: 700; }
+        .json-value { color: var(--gray-600); }
+        .json-merge-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 16px 0 8px;
+        }
+
+        .json-merge-line {
+            width: 2px;
+            height: 24px;
+            background: var(--green);
+        }
+
+        .json-merge-result {
+            border: 1.5px solid var(--red);
+            background: var(--red-glow);
+            border-radius: 4px;
+            padding: 8px 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--red);
+            text-align: center;
+        }
+
+        /* Slide 10: Circuit */
+        .circuit-container {
+            width: 480px;
+            position: relative;
+        }
+
+        .circuit-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .circuit-node {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .circuit-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            margin: 0 auto 8px;
+            letter-spacing: 0.3px;
+        }
+
+        .circuit-icon.click {
+            background: var(--red);
+            color: var(--white);
+            box-shadow: 0 0 20px var(--red-glow);
+        }
+
+        .circuit-icon.cart {
+            background: var(--green);
+            color: var(--white);
+            box-shadow: 0 0 20px var(--green-glow);
+        }
+
+        .circuit-icon.total {
+            background: var(--gray-800);
+            color: var(--white);
+        }
+
+        .circuit-icon.ui {
+            background: var(--white);
+            border: 2px solid var(--green);
+            color: var(--green);
+            box-shadow: 0 0 20px var(--green-glow);
+        }
+
+        .circuit-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--gray-600);
+            letter-spacing: 0.3px;
+        }
+
+        .circuit-line {
+            position: absolute;
+            top: 28px;
+            left: 28px;
+            right: 28px;
+            height: 2px;
+            z-index: 1;
+        }
+
+        .circuit-line-segment {
+            height: 100%;
+            border-radius: 1px;
+        }
+
+        .circuit-line-segment.seg-1 {
+            width: 33.33%;
+            background: var(--red);
+        }
+
+        .circuit-line-segment.seg-2 {
+            width: 33.33%;
+            background: var(--green);
+        }
+
+        .circuit-line-segment.seg-3 {
+            width: 33.34%;
+            background: var(--gray-400);
+        }
+
+        .circuit-loop {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .circuit-loop-line {
+            width: 100px;
+            height: 1.5px;
+            background: var(--green);
+            opacity: 0.4;
+        }
+
+        .circuit-loop-text {
+            font-size: 9px;
+            font-weight: 600;
+            color: var(--green);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .circuit-loop-arrow {
+            font-size: 10px;
+            color: var(--green);
+            opacity: 0.4;
+        }
+
+        /* Slide 11: Tech Stack */
+        .stack-container {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .stack-item {
+            text-align: center;
+        }
+
+        .stack-logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 900;
+            margin: 0 auto 14px;
+            position: relative;
+        }
+
+        .stack-logo.html5 {
+            background: var(--green);
+            color: var(--white);
+            box-shadow: 0 8px 32px var(--green-glow-strong);
+        }
+
+        .stack-logo.css3 {
+            background: var(--white);
+            border: 2.5px solid var(--green);
+            color: var(--green);
+            box-shadow: 0 8px 32px var(--green-glow);
+        }
+
+        .stack-logo.js {
+            background: var(--white);
+            border: 2.5px solid var(--green);
+            color: var(--green);
+            box-shadow: 0 8px 32px var(--green-glow);
+        }
+
+        .stack-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--red);
+        }
+
+        .stack-logo.html5 .stack-dot { top: 10px; right: 10px; }
+        .stack-logo.css3 .stack-dot { bottom: 10px; left: 10px; }
+        .stack-logo.js .stack-dot { top: 10px; left: 10px; }
+
+        .stack-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gray-800);
+            letter-spacing: 0.5px;
+        }
+
+        .stack-desc {
+            font-size: 11px;
+            color: var(--gray-500);
+            margin-top: 2px;
+        }
+
+        /* Slide 12: Reticle */
+        .reticle-container {
+            width: 260px;
+            height: 260px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reticle-outer {
+            width: 200px;
+            height: 200px;
+            border: 1.5px solid var(--green);
+            border-radius: 50%;
+            position: absolute;
+            opacity: 0.4;
+        }
+
+        .reticle-inner {
+            width: 120px;
+            height: 120px;
+            border: 1.5px solid var(--green);
+            border-radius: 50%;
+            position: absolute;
+            opacity: 0.6;
+        }
+
+        .reticle-cross-h {
+            position: absolute;
+            width: 240px;
+            height: 1px;
+            background: var(--green);
+            opacity: 0.3;
+        }
+
+        .reticle-cross-v {
+            position: absolute;
+            height: 240px;
+            width: 1px;
+            background: var(--green);
+            opacity: 0.3;
+        }
+
+        .reticle-center {
+            width: 14px;
+            height: 14px;
+            background: var(--red);
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 30px var(--red-glow), 0 0 60px var(--red-glow);
+        }
+
+        .reticle-data-stream {
+            position: absolute;
+            width: 1.5px;
+            height: 40px;
+            background: var(--green);
+            opacity: 0.5;
+        }
+
+        .reticle-data-stream:nth-child(5) { top: 10px; left: 50%; transform: translateX(-50%); }
+        .reticle-data-stream:nth-child(6) { bottom: 10px; left: 50%; transform: translateX(-50%); }
+        .reticle-data-stream:nth-child(7) { left: 10px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+        .reticle-data-stream:nth-child(8) { right: 10px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+
+        /* Slide 3: Split comparison */
+        .comparison-container {
+            display: flex;
+            gap: 24px;
+            width: 420px;
+        }
+
+        .comparison-card {
+            flex: 1;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .comparison-card.old {
+            background: var(--gray-100);
+            border: 1.5px solid var(--gray-300);
+            opacity: 0.5;
+        }
+
+        .comparison-card.old::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -8px;
+            right: -8px;
+            height: 2px;
+            background: var(--red);
+            transform: rotate(-12deg);
+        }
+
+        .comparison-card.new {
+            background: var(--white);
+            border: 1.5px solid var(--green);
+            box-shadow: 0 4px 24px var(--green-glow);
+        }
+
+        .comparison-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .comparison-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .comparison-card.old .comparison-title { color: var(--gray-500); }
+        .comparison-card.new .comparison-title { color: var(--green); }
+
+        .comparison-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .comparison-line {
+            height: 4px;
+            border-radius: 2px;
+        }
+
+        .comparison-card.old .comparison-line {
+            background: var(--gray-300);
+        }
+
+        .comparison-card.old .comparison-line:nth-child(2) { width: 90%; }
+        .comparison-card.old .comparison-line:nth-child(3) { width: 70%; }
+        .comparison-card.old .comparison-line:nth-child(4) { width: 80%; }
+        .comparison-card.old .comparison-line:nth-child(5) { width: 60%; }
+
+        .comparison-card.new .comparison-line {
+            background: var(--green);
+            opacity: 0.5;
+        }
+
+        .comparison-card.new .comparison-line:nth-child(2) { width: 100%; background: var(--red); opacity: 1; }
+        .comparison-card.new .comparison-line:nth-child(3) { width: 30%; }
+        .comparison-card.new .comparison-line:nth-child(4) { width: 20%; }
+
+        /* Navigation */
+        .nav-controls {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 56px;
+            background: var(--white);
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            width: 40px;
+            height: 40px;
+            border: 1.5px solid var(--gray-300);
+            background: var(--white);
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            color: var(--gray-700);
+        }
+
+        .nav-btn:hover {
+            border-color: var(--green);
+            color: var(--green);
+            background: var(--green-glow);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: default;
+            border-color: var(--gray-300);
+            color: var(--gray-400);
+            background: var(--white);
+        }
+
+        .nav-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .nav-progress {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gray-300);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-dot.active {
+            background: var(--green);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        .nav-counter {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-500);
+            min-width: 48px;
+            text-align: center;
+        }
+
+        .nav-fullscreen {
+            width: 40px;
+            height: 40px;
+            border: 1.5px solid var(--gray-300);
+            background: var(--white);
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            color: var(--gray-700);
+        }
+
+        .nav-fullscreen:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .nav-fullscreen svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Keyboard hint */
+        .keyboard-hint {
+            position: fixed;
+            top: 16px;
+            right: 24px;
+            font-size: 11px;
+            color: var(--gray-400);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.6;
+        }
+
+        .key-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px 8px;
+            background: var(--gray-100);
+            border: 1px solid var(--gray-300);
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--gray-600);
+        }
+
+        /* Slide number badge */
+        .slide-number-badge {
+            position: absolute;
+            top: 32px;
+            left: 40px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray-400);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide.active .anim-1 { animation: fadeInUp 0.5s 0.1s both; }
+        .slide.active .anim-2 { animation: fadeInUp 0.5s 0.25s both; }
+        .slide.active .anim-3 { animation: fadeInUp 0.5s 0.4s both; }
+        .slide.active .anim-4 { animation: fadeInUp 0.5s 0.55s both; }
+        .slide.active .anim-5 { animation: fadeInUp 0.5s 0.7s both; }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 30px var(--red-glow); }
+            50% { box-shadow: 0 0 50px rgba(230, 57, 70, 0.3); }
+        }
+
+        .slide.active .pulse-red {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .slide {
+                padding: 40px 32px;
+                padding-bottom: 80px;
+            }
+
+            .slide-split {
+                flex-direction: column;
+                gap: 32px;
+            }
+
+            .wireframe-container {
+                width: 300px;
+                height: 240px;
+            }
+
+            .json-container {
+                width: 320px;
+                font-size: 12px;
+            }
+
+            .circuit-container {
+                width: 360px;
+            }
+
+            .graph-container {
+                width: 300px;
+            }
+
+            .comparison-container {
+                width: 320px;
+            }
+
+            .flow-container {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+                width: 24px;
+            }
+
+            .stack-container {
+                gap: 24px;
+            }
+
+            .stack-logo {
+                width: 70px;
+                height: 70px;
+                font-size: 22px;
+            }
+
+            .keyboard-hint {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .slide {
+                padding: 28px 20px;
+                padding-bottom: 80px;
+            }
+
+            .layers-container {
+                width: 280px;
+            }
+
+            .glass-pane {
+                width: 260px;
+                height: 80px;
+            }
+
+            .shield-container {
+                width: 260px;
+            }
+
+            .gate-frame {
+                height: 150px;
+            }
+
+            .reticle-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            .reticle-outer { width: 160px; height: 160px; }
+            .reticle-inner { width: 90px; height: 90px; }
+            .reticle-cross-h { width: 180px; }
+            .reticle-cross-v { height: 180px; }
+        }
+
+        @media print {
+            .nav-controls, .keyboard-hint { display: none; }
+            .slide { 
+                page-break-after: always;
+                opacity: 1;
+                transform: none;
+                pointer-events: all;
+                position: relative;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="presentation" id="presentation">
+
+    <!-- SLIDE 1: Title -->
+    <div class="slide active" data-slide="1">
+        <div class="slide-center">
+            <div class="anim-1">
+                <div class="title-main">Frutiva</div>
+            </div>
+            <div class="anim-2">
+                <div class="title-sub">The Future of Fresh.</div>
+            </div>
+            <div class="anim-3">
+                <div class="red-line"></div>
+            </div>
+            <div class="anim-4">
+                <div class="title-presenter">Mohammed Huzaifah</div>
+            </div>
+            <div class="anim-5">
+                <div class="title-academic">[INSERT YOUR ROLL NO HERE], Department of Computer Applications</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: Core Vision -->
+    <div class="slide" data-slide="2">
+        <div class="slide-split">
+            <div class="text-col">
+                <div class="anim-1">
+                    <div class="slide-label">The Problem</div>
+                </div>
+                <div class="anim-2">
+                    <div class="slide-headline red-accent">It's not just groceries. It's a complete <span>rethinking</span> of how we access health.</div>
+                </div>
+                <div class="anim-3">
+                    <ul class="slide-bullets">
+                        <li>2026 Wellness Demand Surge</li>
+                        <li>The Frutiva Ecosystem Solution</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="visual-col anim-4">
+                <div class="visual-radial">
+                    <div class="center-dot pulse-red"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: UX Manifesto -->
+    <div class="slide" data-slide="3">
+        <div class="slide-split">
+            <div class="text-col">
+                <div class="anim-1">
+                    <div class="slide-label">UX Philosophy</div>
+                </div>
+                <div class="anim-2">
+                    <div class="slide-quote">"Technology is nothing. What's important is that you have faith in people."</div>
+                </div>
+                <div class="anim-3">
+                    <ul class="slide-bullets">
+                        <li>Frictionless Interface</li>
+                        <li>Zero-Latency Cart Response</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="visual-col anim-4">
+                <div class="comparison-container">
+                    <div class="comparison-card old">
+                        <div class="comparison-title">Traditional</div>
+                        <div class="comparison-lines">
+                            <div class="comparison-line"></div>
+                            <div class="comparison-line"></div>
+                            <div class="comparison-line"></div>
+                            <div class="comparison-line"></div>
+                            <div class="comparison-line"></div>
+                        </div>
+                    </div>
+                    <div class="comparison-card new">
+                        <div class="comparison-title">Frutiva</div>
+                        <div class="comparison-lines">
+                            <div class="comparison-line"></div>
+                            <div class="comparison-line"></div>
+                            <div class="comparison-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: HTML5 Structure -->
+    <div class="slide" data-slide="4">
+        <div class="slide-split">
+            <div class="text-col">
+                <div class="anim-1">
+                    <div class="slide-label">Technical Foundation</div>
+                </div>
+                <div class="anim-2">
+                    <div class="slide-headline">The Skeleton of the Future.</div>
+                </div>
+                <div class="anim-3">
+                    <ul class="slide-bullets">
+                        <li>Semantic Web Architecture</li>
+                        <li>Accessibility-First Design</li>
+                    </ul>
+                </div>
+                <div class="anim-4">
+                    <div class="slide-subtext">&lt;section&gt; &lt;article&gt; &lt;nav&gt; &lt;header&gt;</div>
+                </div>
+            </div>
+            <div class="visual-col anim-4">
+                <div class="wireframe-container">
+                    <div class="wireframe-nav">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="wireframe-hero">
+                        <div class="wireframe-tag">&lt;header&gt;</div>
+                    </div>
+                    <div class="wireframe-body">
+                        <div class="wireframe-main">
+                            <div class="wireframe-card">
+                                <div class="wireframe-tag">&lt;article&gt;</div>
+                            </div>
+                            <div class="wireframe-card">
+                                <div class="wireframe-tag">&lt;article&gt;</div>
+                            </div>
+                            <div class="wireframe-card">
+                                <div class="wireframe-tag">&lt;article&gt;</div>
+                            </div>
+                            <div class="wireframe-card">
+                                <div class="wireframe-tag">&lt;article&gt;</div>
+                            </div>
+                        </div>
+                        <div class="wireframe-sidebar">
+                            <div class="wireframe-sidebar-item"></div>
+                            <div class="wireframe-sidebar-item"></div>
+                            <div class="wireframe-sidebar-item"></div>
+                        </div>
+                    </div>
+                    <div class="wireframe-footer">
+                        <div class="wireframe-tag">&lt;footer&gt;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: CSS3 Architecture -->
+    <div class="slide" data-slide="5">
+        <div class="slide-split">
+            <div class="text-col">
+                <div class="anim-1">
+                    <div class="slide-label">Style Engine</div>
+                </div>
+                <div class="anim-2">
+                    <div class="slide-headline">Vibrant. Simple. Appetizing.</div>
+                </div>
+                <div class="anim-3">
+                    <ul class="slide-bullets">
+                        <li>CSS Grid Layout Engine</li>
+                        <li>Flexbox Micro-Alignment</li>
+                        <li>Mobile-First Responsiveness</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="visual-col anim-4">
+                <div class="layers-container">
+                    <div class="glass-pane glass-pane-1">
+                        <div>
+                            <div class="pane-label green">CSS Grid</div>
+                            <div class="pane-detail">Structural skeleton</div>
+                        </div>
+                    </div>
+                    <div class="glass-pane glass-pane-2">
+                        <div>
+                            <div class="pane-label red">Flexbox</div>
+                            <div class="pane-detail">Component alignment</div>
+                        </div>
+                    </div>
+                    <div class="glass-pane glass-pane-3">
+                        <div>
+                            <div class="pane-label dark">Final UI</div>
+                            <div class="pane-detail">Polished interface</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: Per-Weight Cart Logic -->
+    <div class="slide" data-slide="6">
+        <div class="slide-split">
+            <div class="text-col">
+                <div class="anim-1">
+                    <div class="slide-label">Core Feature</div>
+                </div>
+                <div class="anim-2">
+                    <div class="slide-headline">It's About Choice, Not Constraints.</div>
+                </div>
+                <div class="anim-3">
+                    <ul class="slide-bullets">
+                        <li>Dynamic State Management</li>
+                        <li>Real-Time DOM Update</li>
+                    </ul>
+                </div>
+                <div class="anim-4">
+                    <div class="slide-subtext">basePrice &times; weight = computedTotal</div>
+                </div>
+            </div>
+            <div class="visual-col anim-4">
+                <div class="flow-container">
+                    <div class="flow-node flow-node-input">2kg Mango</div>
+                    <div class="flow-arrow green"></div>
+                    <div class="flow-node flow-node-process">
+                        Process
+                        <div class="math">₹180 &times; 2</div>
+                    </div>
+                    <div class="flow-arrow red"></div>
+                    <div class="flow-node flow-node-output">₹360</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: Seasonal Price Algorithm -->
+    <div class="slide" data-slide="7">
+        <div class="slide-split">
+            <div class="text-col">
+                <div class="anim-1">
+                    <div class="slide-label">Intelligence Layer</div>
+                </div>
+                <div class="anim-2">
+                    <div class="slide-headline">Dynamic Intelligence.</div>
+                </div>
+                <div class="anim-3">
+                    <ul class="slide-bullets">
+                        <li>Time-Variable Pricing</li>
+                        <li>Algorithmic Scaling</li>
+                        <li>Predictive UX</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="visual-col anim-4">
+                <div class="graph-container">
+                    <div class="graph-line">
+                        <svg viewBox="0 0 400 240" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="graphFill" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="var(--green)" stop-opacity="0.1"/>
+                                    <stop offset="100%" stop-color="var(--green)" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,200 Q50,190 100,170 T200,120 T240,40 T280,30 T320,80 T360,90 T400,100" fill="none" stroke="var(--green)" stroke-width="2.5"/>
+                            <path d="M0,200 Q50,190 100,170 T200,120 T240,40 T280,30 T320,80 T360,90 T400,100 L400,240 L0,240 Z" fill="url(#graphFill)"/>
+                            <path d="M240,40 T280,30 T320,80" fill="none" stroke="var(--red)" stroke-width="3"/>
+                            <circle cx="260" cy="32" r="5" fill="var(--red)"/>
+                        </svg>
+                    </div>
+                    <div class="graph-label normal">Off-Season</div>
+                    <div class="graph-label harvest">Harvest Drop</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: Inventory Check -->
+    <div class="slide" data-slide="8">
+        <div class="slide-split">
+            <div class="text-col">
+                <div class="anim-1">
+                    <div class="slide-label">Fail-Safe</div>
+                </div>
+                <div class="anim-2">
+                    <div class="slide-headline">Confidence, Built-In.</div>
+                </div>
+                <div class="anim-3">
+                    <ul class="slide-bullets">
+                        <li>State Validation Gate</li>
+                        <li>Boolean inStock Check</li>
+                        <li>Graceful UI Degradation</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="visual-col anim-4">
+                <div class="shield-container">
+                    <div class="gate-frame">
+                        <div class="gate-scanner"></div>
+                        <div class="gate-pass" style="top: 30%;">
+                            <div class="gate-packet allowed">IN STOCK</div>
+                            <div style="color: var(--green); font-size: 16px;">&#8594;</div>
+                        </div>
+                        <div class="gate-pass" style="top: 70%;">
+                            <div class="gate-packet blocked">OUT</div>
+                            <div class="gate-arrow-block">&#10005;</div>
+                        </div>
+                    </div>
+                    <div class="gate-labels">
+                        <div class="gate-label-text green">Allowed</div>
+                        <div class="gate-label-text red">Blocked</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: Smoothie Prep Box Bundler -->
+    <div class="slide" data-slide="9">
+        <div class="slide-split">
+            <div class="text-col">
+                <div class="anim-1">
+                    <div class="slide-label">Bundle Logic</div>
+                </div>
+                <div class="anim-2">
+                    <div class="slide-headline">Simplifying Complexity.</div>
+                </div>
+                <div class="anim-3">
+                    <ul class="slide-bullets">
+                        <li>Array Mapping</li>
+                        <li>Single-Click Multi-ID Push</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="visual-col anim-4">
+                <div class="json-container">
+                    <div>
+                        <span class="json-bracket">{</span><br>
+                        &nbsp;&nbsp;<span class="json-key">"bundle"</span>: <span class="json-value">"smoothieBox"</span>,<br>
+                        &nbsp;&nbsp;<span class="json-key-green">"ids"</span>: [<span class="json-value-red">1</span>, <span class="json-value-red">5</span>, <span class="json-value-red">9</span>],<br>
+                        &nbsp;&nbsp;<span class="json-key">"action"</span>: <span class="json-value">"pushAll"</span><br>
+                        <span class="json-bracket">}</span>
+                    </div>
+                    <div class="json-merge-arrow">
+                        <div class="json-merge-line"></div>
+                    </div>
+                    <div class="json-merge-result">cart.push() &times; 3 &rarr; Single Click</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: Interactive Showcase -->
+    <div class="slide" data-slide="10">
+        <div class="slide-full-visual">
+            <div class="anim-1">
+                <div class="slide-label" style="text-align:center;">The Flow</div>
+            </div>
+            <div class="anim-2" style="margin-bottom: 48px;">
+                <div class="slide-headline" style="text-align:center;">It Just Works.</div>
+            </div>
+            <div class="anim-3">
+                <div class="circuit-container">
+                    <div class="circuit-flow">
+                        <div class="circuit-line">
+                            <div class="circuit-line-segment seg-1"></div>
+                            <div class="circuit-line-segment seg-2"></div>
+                            <div class="circuit-line-segment seg-3"></div>
+                        </div>
+                        <div class="circuit-node">
+                            <div class="circuit-icon click">CLICK</div>
+                            <div class="circuit-label">addProduct()</div>
+                        </div>
+                        <div class="circuit-node">
+                            <div class="circuit-icon cart">CART</div>
+                            <div class="circuit-label">cart[] State</div>
+                        </div>
+                        <div class="circuit-node">
+                            <div class="circuit-icon total">SUM</div>
+                            <div class="circuit-label">updateTotal()</div>
+                        </div>
+                        <div class="circuit-node">
+                            <div class="circuit-icon ui">UI</div>
+                            <div class="circuit-label">DOM Render</div>
+                        </div>
+                    </div>
+                    <div class="circuit-loop">
+                        <div class="circuit-loop-text">Seamless Loop</div>
+                        <div class="circuit-loop-line"></div>
+                        <div class="circuit-loop-arrow">&#8592;</div>
+                        <div class="circuit-loop-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: Performance Metrics -->
+    <div class="slide" data-slide="11">
+        <div class="slide-center">
+            <div class="anim-1">
+                <div class="slide-label">Under The Hood</div>
+            </div>
+            <div class="anim-2">
+                <div class="slide-headline" style="text-align:center;">Insanely Fast.</div>
+            </div>
+            <div class="anim-3">
+                <ul class="slide-bullets" style="align-items:center;">
+                    <li>Zero External Frameworks</li>
+                    <li>Minimal JS Footprint</li>
+                    <li>DOM Efficiency</li>
+                </ul>
+            </div>
+            <div class="anim-4" style="margin-top: 48px;">
+                <div class="stack-container">
+                    <div class="stack-item">
+                        <div class="stack-logo html5">
+                            <div class="stack-dot"></div>
+                            5
+                        </div>
+                        <div class="stack-name">HTML5</div>
+                        <div class="stack-desc">Structure</div>
+                    </div>
+                    <div class="stack-item">
+                        <div class="stack-logo css3">
+                            <div class="stack-dot"></div>
+                            3
+                        </div>
+                        <div class="stack-name">CSS3</div>
+                        <div class="stack-desc">Style</div>
+                    </div>
+                    <div class="stack-item">
+                        <div class="stack-logo js">
+                            <div class="stack-dot"></div>
+                            JS
+                        </div>
+                        <div class="stack-name">JavaScript</div>
+                        <div class="stack-desc">Logic</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 12: Future Roadmap -->
+    <div class="slide" data-slide="12">
+        <div class="slide-split">
+            <div class="text-col">
+                <div class="anim-1">
+                    <div class="slide-label" style="color: var(--green);">One More Thing...</div>
+                </div>
+                <div class="anim-2">
+                    <div class="slide-headline red-accent">The <span>Nutrition API</span> Integration.</div>
+                </div>
+                <div class="anim-3">
+                    <ul class="slide-bullets">
+                        <li>Real-Time Vitamin C Calculation</li>
+                        <li>Health-to-Cart Data Pipeline</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="visual-col anim-4">
+                <div class="reticle-container">
+                    <div class="reticle-outer"></div>
+                    <div class="reticle-inner"></div>
+                    <div class="reticle-cross-h"></div>
+                    <div class="reticle-cross-v"></div>
+                    <div class="reticle-data-stream"></div>
+                    <div class="reticle-data-stream"></div>
+                    <div class="reticle-data-stream"></div>
+                    <div class="reticle-data-stream"></div>
+                    <div class="reticle-center pulse-red"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 13: Thank You -->
+    <div class="slide" data-slide="13">
+        <div class="slide-center">
+            <div class="anim-1">
+                <div class="thank-you-text">Thank You.</div>
+            </div>
+            <div class="anim-2">
+                <div class="red-line"></div>
+            </div>
+            <div class="anim-3">
+                <div class="thank-you-sub">Elegant Engineering. Technical Q&A.</div>
+            </div>
+            <div class="anim-4">
+                <div class="red-circle-bottom"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Navigation Bar -->
+<div class="nav-controls">
+    <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <div class="nav-progress">
+        <div class="nav-dots" id="navDots"></div>
+        <div class="nav-counter" id="navCounter">1 / 13</div>
+    </div>
+    <button class="nav-fullscreen" onclick="toggleFullscreen()" title="Fullscreen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+    </button>
+    <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+</div>
+
+<div class="keyboard-hint">
+    <span class="key-badge">&#8592;</span>
+    <span class="key-badge">&#8594;</span>
+    Navigate
+</div>
+
+<script>
+    const totalSlides = 13;
+    let currentSlide = 1;
+    let isAnimating = false;
+
+    // Build navigation dots
+    const dotsContainer = document.getElementById('navDots');
+    for (let i = 1; i <= totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'nav-dot' + (i === 1 ? ' active' : '');
+        dot.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(dot);
+    }
+
+    function goToSlide(n) {
+        if (n === currentSlide || isAnimating || n < 1 || n > totalSlides) return;
+        isAnimating = true;
+
+        const direction = n > currentSlide ? 1 : -1;
+        const slides = document.querySelectorAll('.slide');
+        const oldSlide = slides[currentSlide - 1];
+        const newSlide = slides[n - 1];
+
+        // Remove active from all
+        slides.forEach(s => {
+            s.classList.remove('active', 'exit-left');
+        });
+
+        // Exit direction for old slide
+        if (direction > 0) {
+            oldSlide.classList.add('exit-left');
+        }
+
+        // Enter direction for new slide
+        if (direction < 0) {
+            newSlide.style.transform = 'translateX(-60px)';
+        } else {
+            newSlide.style.transform = 'translateX(60px)';
+        }
+        newSlide.style.opacity = '0';
+
+        // Force reflow
+        void newSlide.offsetWidth;
+
+        newSlide.classList.add('active');
+        newSlide.style.transform = '';
+        newSlide.style.opacity = '';
+
+        currentSlide = n;
+        updateNav();
+
+        setTimeout(() => {
+            oldSlide.classList.remove('exit-left');
+            isAnimating = false;
+        }, 600);
+    }
+
+    function changeSlide(dir) {
+        goToSlide(currentSlide + dir);
+    }
+
+    function updateNav() {
+        document.getElementById('prevBtn').disabled = currentSlide === 1;
+        document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        document.getElementById('navCounter').textContent = currentSlide + ' / ' + totalSlides;
+
+        const dots = document.querySelectorAll('.nav-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i + 1 === currentSlide);
+        });
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+            e.preventDefault();
+            changeSlide(1);
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            changeSlide(-1);
+        } else if (e.key === 'Home') {
+            e.preventDefault();
+            goToSlide(1);
+        } else if (e.key === 'End') {
+            e.preventDefault();
+            goToSlide(totalSlides);
+        } else if (e.key === 'f' || e.key === 'F') {
+            toggleFullscreen();
+        }
+    });
+
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 60) {
+            if (diff > 0) changeSlide(1);
+            else changeSlide(-1);
+        }
+    }, { passive: true });
+
+    // Fullscreen
+    function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(() => {});
+        } else {
+            document.exitFullscreen().catch(() => {});
+        }
+    }
+
+    // Initialize
+    updateNav();
+</script>
+
+</body>
+</html>
